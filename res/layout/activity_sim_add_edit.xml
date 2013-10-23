@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/lib/com.google.ads"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="0.0dip"
+        android:layout_weight="1.0"
+        android:paddingLeft="16.0dip"
+        android:paddingRight="16.0dip"
+        android:scrollbarStyle="outsideOverlay" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                style="@style/Theme.Asecure.ListSeparator"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="SIM DETAILS" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5.0dip"
+                android:layout_marginLeft="10.0dip"
+                android:layout_marginTop="5.0dip"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/operator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="3.0dip"
+                    android:hint="Operator Name"
+                    android:textSize="18.0sp" />
+
+                <TextView
+                    android:id="@+id/number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="SIM Number"
+                    android:textColor="@color/grey"
+                    android:textSize="16.0sp" />
+            </LinearLayout>
+
+            <TextView
+                style="@style/Theme.Asecure.ListSeparator"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="NOTIFY CONTACTS" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="48.0dip"
+                android:orientation="horizontal" >
+
+                <EditText
+                    android:id="@+id/notify_number1"
+                    android:layout_width="0.0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1.0"
+                    android:ems="10"
+                    android:hint="Notify Number 1"
+                    android:inputType="phone" />
+
+                <ImageButton
+                    android:id="@+id/notify_number1_select"
+                    style="@style/Theme.Asecure.BorderlessButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/ic_contact" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="48.0dip"
+                android:orientation="horizontal" >
+
+                <EditText
+                    android:id="@+id/notify_number2"
+                    android:layout_width="0.0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1.0"
+                    android:ems="10"
+                    android:hint="Notify Number 2"
+                    android:inputType="phone" />
+
+                <ImageButton
+                    android:id="@+id/notify_number2_select"
+                    style="@style/Theme.Asecure.BorderlessButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/ic_contact" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="48.0dip"
+                android:orientation="horizontal" >
+
+                <EditText
+                    android:id="@+id/notify_number3"
+                    android:layout_width="0.0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1.0"
+                    android:ems="10"
+                    android:hint="Notify Number 3"
+                    android:inputType="phone" />
+
+                <ImageButton
+                    android:id="@+id/notify_number3_select"
+                    style="@style/Theme.Asecure.BorderlessButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/ic_contact" />
+            </LinearLayout>
+
+            <TextView
+                style="@style/Theme.Asecure.ListSeparator"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Options" />
+
+            <CheckBox
+                android:id="@+id/send_sms"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:enabled="false"
+                android:text="Send SMS" />
+
+            <CheckBox
+                android:id="@+id/send_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Send Location" />
+
+            <CheckBox
+                android:id="@+id/send_mail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Send by mail"
+                android:visibility="gone" />
+        </LinearLayout>
+    </ScrollView>
+
+    <com.google.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        ads:adSize="SMART_BANNER"
+        ads:adUnitId="@string/publisher_id"
+        ads:loadAdOnCreate="true" />
+
+</LinearLayout>

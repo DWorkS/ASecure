@@ -1,0 +1,32 @@
+<resources>
+
+    <style name="Theme.Asecure" parent="@style/Theme.Sherlock.Light.DarkActionBar">
+        <item name="android:buttonStyle">@style/ButtonASecure</item>
+        <!-- <item name="android:checkboxStyle">@style/CheckBoxASecure</item> -->
+        <item name="android:editTextStyle">@style/EditTextASecure</item>
+        <item name="android:imageButtonStyle">@style/ImageButtonASecure</item>
+        <item name="android:listViewStyle">@style/ListViewASecure</item>
+        <item name="android:listViewWhiteStyle">@style/ListViewASecure.White</item>
+        <item name="android:progressBarStyleHorizontal">@style/ProgressBarASecure</item>
+        <item name="android:radioButtonStyle">@style/RadioButtonASecure</item>
+        <item name="android:spinnerItemStyle">@style/SpinnerItemASecure</item>
+        <item name="actionBarTabStyle">@style/ActionBarTabStyle.Asecure</item>
+        <item name="actionOverflowButtonStyle">@style/Theme.Asecure.ActionButton.Overflow</item>
+        <item name="actionBarStyle">@style/ActionBar.Solid.Asecure</item>
+        <item name="actionBarWidgetTheme">@style/Theme.Asecure.Widget</item>
+        <item name="actionBarItemBackground">@drawable/selectable_background_asecure</item>
+        <item name="actionModeCloseButtonStyle">@style/ActionButton.CloseMode.Asecure</item>
+        <item name="actionModeBackground">@drawable/cab_background_top_asecure</item>
+        <item name="actionModeSplitBackground">@drawable/cab_background_bottom_asecure</item>
+        <item name="actionDropDownStyle">@style/DropDownNav.Asecure</item>
+        <item name="dropDownListViewStyle">@style/DropDownListView.Asecure</item>
+        <item name="popupMenuStyle">@style/PopupMenu.Asecure</item>
+    </style>
+
+    <style name="Theme.Asecure.About" parent="@style/Theme.Sherlock.Light.DarkActionBar" />
+
+    <style name="Theme.Asecure.DailogLogin" parent="@style/Theme.Asecure">
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+</resources>

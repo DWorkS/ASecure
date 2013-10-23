@@ -1,0 +1,29 @@
+<resources>
+
+    <string name="app_name">ASecure</string>
+    <string name="app_ver">Another Secure v0.1</string>
+    <string name="app_company">Developed By DWorkS</string>
+    <string name="app_url">http://www.dworks.in</string>
+    <string name="app_about_info">To make a small difference.</string>
+    <string name="app_contrib">Contributions by Hari Krishna Dulipudi</string>
+    <string name="app_about">This Secure helps you when your phone is stolen</string>
+    <string name="twitter"><a href="https://twitter.com/1HaKr"> Twitter</a></string>
+    <string name="gplus"><a href="https://plus.google.com/109240246596102887385"> Google+</a></string>
+    <string name="title_activity_about">About</string>
+    <string name="empty_list">"No Registered SIM's"</string>
+    <string name="title_activity_simadd_edit">SIM Details</string>
+    <string name="action_save">Save</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="action_delete">Delete</string>
+    <string name="msg_login">Login</string>
+    <string name="msg_wrong_password">wrong password</string>
+    <string name="msg_pwd_empty">Password cannot be empty</string>
+    <string name="auto_login">Auto Login</string>
+    <string name="auto_login_desc">Automatically login</string>
+    <string name="login_pwd">Login Password</string>
+    <string name="login_pwd_retype">Retype Login Password</string>
+    <string name="login_pwd_desc">Password for login</string>
+    <string name="welcome">Welcome to ASecure</string>
+    <string name="publisher_id">a1526236de4a7df</string>
+
+</resources>

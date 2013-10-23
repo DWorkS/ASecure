@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="ActionBar.Solid.Asecure" parent="@style/Widget.Sherlock.Light.ActionBar.Solid.Inverse">
+        <item name="android:background">@drawable/ab_solid_asecure</item>
+        <item name="android:backgroundStacked">@drawable/ab_stacked_solid_asecure</item>
+        <item name="android:backgroundSplit">@drawable/ab_bottom_solid_asecure</item>
+        <item name="android:progressBarStyle">@style/ProgressBar.Asecure</item>
+    </style>
+
+    <style name="ActionBar.Transparent.Asecure" parent="@style/Widget.Sherlock.ActionBar">
+        <item name="android:background">@drawable/ab_transparent_asecure</item>
+        <item name="android:progressBarStyle">@style/ProgressBar.Asecure</item>
+    </style>
+
+    <!-- this style is only referenced in a Light.DarkActionBar based theme -->
+    <style name="Theme.Asecure.Widget" parent="@style/Theme.Sherlock">
+        <item name="android:popupMenuStyle">@style/PopupMenu.Asecure</item>
+        <item name="android:dropDownListViewStyle">@style/DropDownListView.Asecure</item>
+    </style>
+
+    <style name="ButtonASecure" parent="android:Widget.Holo.Light.Button">
+        <item name="android:background">@drawable/btn_default_holo_light</item>
+    </style>
+
+    <style name="ImageButtonASecure" parent="android:Widget.Holo.Light.ImageButton">
+        <item name="android:background">@drawable/btn_default_holo_light</item>
+    </style>
+
+    <style name="ProgressBarASecure" parent="android:Widget.Holo.Light.ProgressBar.Horizontal">
+        <item name="android:progressDrawable">@drawable/progress_horizontal_holo_light</item>
+        <item name="android:indeterminateDrawable">@drawable/progress_indeterminate_horizontal_holo_light</item>
+    </style>
+
+</resources>
