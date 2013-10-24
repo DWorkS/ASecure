@@ -6,6 +6,63 @@
     tools:context=".MainActivity" >
 
     <LinearLayout
+        android:id="@+id/dismissable_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <dev.dworks.apps.asecure.ui.SwipeLinearLayout
+            android:id="@+id/dismiss_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/card_bg"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="sans-serif-light"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:text="@string/welcome"
+                android:textSize="22sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:textColor="@color/grey_light"
+                android:text="@string/welcome_message"
+                android:gravity="fill_vertical"
+                android:textSize="18sp" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/grey_light" />
+
+            <Button
+                android:id="@+id/dismiss"
+                style="@style/Theme.Asecure.BorderlessButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_registered"
+                android:drawablePadding="10dp"
+                android:padding="10dp"
+                android:textColor="@color/green"
+                android:text="Got it" />
+        </dev.dworks.apps.asecure.ui.SwipeLinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"

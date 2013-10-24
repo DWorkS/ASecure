@@ -62,6 +62,7 @@ public class SIMAddEditActivity extends SherlockFragmentActivityPlus
 	private TextView operator;
 	private String operatorName;
 	private CheckBox send_location;
+	@SuppressWarnings("unused")
 	private CheckBox send_sms;
 	private SIMQueryHandler simQueryHandler;
 	private String simSerial;

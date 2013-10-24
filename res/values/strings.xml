@@ -6,7 +6,7 @@
     <string name="app_url">http://www.dworks.in</string>
     <string name="app_about_info">To make a small difference.</string>
     <string name="app_contrib">Contributions by Hari Krishna Dulipudi</string>
-    <string name="app_about">This Secure helps you when your phone is stolen</string>
+    <string name="app_about">This ASecure add more security to your phone. Helps you when your phone is stolen</string>
     <string name="twitter"><a href="https://twitter.com/1HaKr"> Twitter</a></string>
     <string name="gplus"><a href="https://plus.google.com/109240246596102887385"> Google+</a></string>
     <string name="title_activity_about">About</string>
@@ -23,7 +23,8 @@
     <string name="login_pwd">Login Password</string>
     <string name="login_pwd_retype">Retype Login Password</string>
     <string name="login_pwd_desc">Password for login</string>
-    <string name="welcome">Welcome to ASecure</string>
+    <string name="welcome">Welcome to <b>ASecure</b></string>
     <string name="publisher_id">a1526236de4a7df</string>
+    <string name="welcome_message">Register <b>SIM</b> and set notification contacts. Get messages on SIM change.</string>
 
 </resources>

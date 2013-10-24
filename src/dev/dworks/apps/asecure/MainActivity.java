@@ -48,9 +48,10 @@ import dev.dworks.apps.asecure.entity.SecureSIM;
 import dev.dworks.apps.asecure.entity.SecureSIM.SecureSIMColumns;
 import dev.dworks.apps.asecure.misc.Utils;
 import dev.dworks.libs.actionbarplus.SherlockFragmentActivityPlus;
+import dev.dworks.libs.widget.SwipeDismissTouchListener;
 
 public class MainActivity extends SherlockFragmentActivityPlus implements
-		View.OnClickListener {
+		OnClickListener {
 
 	private static final String[] PROJECTION = {
 	  		SecureSIMColumns._ID,
@@ -68,6 +69,9 @@ public class MainActivity extends SherlockFragmentActivityPlus implements
 	private Animation shake;
 	private SIMQueryHandler simQueryHandler;
 	private String simSerial;
+	private Button dismiss;
+	private View dismiss_content;
+	private boolean showWelcome;
 
 	@Override
 	protected void onCreate(Bundle paramBundle) {
@@ -75,6 +79,7 @@ public class MainActivity extends SherlockFragmentActivityPlus implements
 		setContentView(R.layout.activity_main);
 		mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 		password = mSharedPreferences.getString("LoginPasswordPref", "");
+		showWelcome = mSharedPreferences.getBoolean("WelcomePref", true);
 		if (paramBundle == null){
 			showLoginDialog();
 		}
@@ -85,11 +90,36 @@ public class MainActivity extends SherlockFragmentActivityPlus implements
 	}
 
 	private void initControls() {
-		shake = AnimationUtils.loadAnimation(this, 2130968577);
-		number = ((TextView) findViewById(2131034170));
-		operator = ((TextView) findViewById(2131034169));
-		register = ((ImageButton) findViewById(2131034171));
+		shake = AnimationUtils.loadAnimation(this, R.anim.shake);
+		number = ((TextView) findViewById(R.id.number));
+		operator = ((TextView) findViewById(R.id.operator));
+		register = ((ImageButton) findViewById(R.id.register));
 		register.setOnClickListener(this);
+		dismiss = ((Button) findViewById(R.id.dismiss));
+		dismiss_content = findViewById(R.id.dismiss_content);
+		dismiss.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				dismiss_content.setVisibility(View.GONE);
+				mSharedPreferences.edit().putBoolean("WelcomePref", false).commit();
+			}
+		});
+		dismiss_content.setVisibility(showWelcome ? View.VISIBLE : View.GONE);
+		dismiss_content.setOnTouchListener(new SwipeDismissTouchListener(dismiss_content, null, 
+				new SwipeDismissTouchListener.DismissCallbacks() {
+					
+					@Override
+					public void onDismiss(View view, Object token) {
+						dismiss_content.setVisibility(View.GONE);
+						mSharedPreferences.edit().putBoolean("WelcomePref", false).commit();
+					}
+					
+					@Override
+					public boolean canDismiss(Object token) {
+						return true;
+					}
+				}));
 	}
 
 	private void setNewData() {

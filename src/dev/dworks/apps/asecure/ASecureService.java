@@ -24,6 +24,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.telephony.SmsManager;
 import android.telephony.TelephonyManager;
+import android.telephony.gsm.GsmCellLocation;
 import android.text.TextUtils;
 import dev.dworks.apps.asecure.entity.SecureSIM;
 import dev.dworks.apps.asecure.entity.SecureSIM.SecureSIMColumns;
@@ -52,14 +53,25 @@ public class ASecureService extends IntentService {
 	@Override
 	protected void onHandleIntent(Intent intent) {
 		SmsManager smsManager = SmsManager.getDefault();
+        String messageToSend = "I have your phone";
+        int lac = 0;
+        TelephonyManager telephonyManager = (TelephonyManager)getApplicationContext().getSystemService(Context.TELEPHONY_SERVICE);
+        String operatorName = telephonyManager.getSimOperatorName();
+        String simSerial = telephonyManager.getSimSerialNumber();
+        String imeiNumber = telephonyManager.getDeviceId();
+        GsmCellLocation location = (GsmCellLocation) telephonyManager.getCellLocation();
+        if(null != location){
+        	lac = location.getLac();
+        }
+        messageToSend += "\n My Operator is '"+ operatorName+ "'";
+        messageToSend += "\n My SIM serial is '"+ simSerial+ "'";
+        messageToSend += "\n My IMEI number is '"+ imeiNumber+ "'";
+        if(lac != 0){
+        	messageToSend += "\n My LAC is '"+ lac + "'";	
+        }
         
-        TelephonyManager info = (TelephonyManager)getApplicationContext().getSystemService(Context.TELEPHONY_SERVICE);
-        String operatorName = info.getSimOperatorName();
-        String simSerial = info.getSimSerialNumber();
-
         //TODO: add lot long
-        List<String> messages = smsManager.divideMessage("I have your phone.\n My Operator is "+"'"+operatorName+"'"
-        		+ ".\n My SIM serial is "+"'"+simSerial+"'");
+        List<String> messages = smsManager.divideMessage(messageToSend);
 
 		Cursor cursor = getContentResolver().query(
 				SecureSIM.CONTENT_URI,

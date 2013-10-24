@@ -7,10 +7,10 @@
 
     <ScrollView
         android:layout_width="fill_parent"
-        android:layout_height="0.0dip"
-        android:layout_weight="1.0"
-        android:paddingLeft="16.0dip"
-        android:paddingRight="16.0dip"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
         android:scrollbarStyle="outsideOverlay" >
 
         <LinearLayout
@@ -27,18 +27,18 @@
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="5.0dip"
-                android:layout_marginLeft="10.0dip"
-                android:layout_marginTop="5.0dip"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
                 android:orientation="vertical" >
 
                 <TextView
                     android:id="@+id/operator"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="3.0dip"
+                    android:layout_marginBottom="3dp"
                     android:hint="Operator Name"
-                    android:textSize="18.0sp" />
+                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/number"
@@ -46,7 +46,7 @@
                     android:layout_height="wrap_content"
                     android:hint="SIM Number"
                     android:textColor="@color/grey"
-                    android:textSize="16.0sp" />
+                    android:textSize="16sp" />
             </LinearLayout>
 
             <TextView
@@ -57,15 +57,15 @@
 
             <LinearLayout
                 android:layout_width="fill_parent"
-                android:layout_height="48.0dip"
+                android:layout_height="48dp"
                 android:orientation="horizontal" >
 
                 <EditText
                     android:id="@+id/notify_number1"
-                    android:layout_width="0.0dip"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:layout_weight="1.0"
+                    android:layout_weight="1"
                     android:ems="10"
                     android:hint="Notify Number 1"
                     android:inputType="phone" />
@@ -81,15 +81,15 @@
 
             <LinearLayout
                 android:layout_width="fill_parent"
-                android:layout_height="48.0dip"
+                android:layout_height="48dp"
                 android:orientation="horizontal" >
 
                 <EditText
                     android:id="@+id/notify_number2"
-                    android:layout_width="0.0dip"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:layout_weight="1.0"
+                    android:layout_weight="1"
                     android:ems="10"
                     android:hint="Notify Number 2"
                     android:inputType="phone" />
@@ -105,15 +105,15 @@
 
             <LinearLayout
                 android:layout_width="fill_parent"
-                android:layout_height="48.0dip"
+                android:layout_height="48dp"
                 android:orientation="horizontal" >
 
                 <EditText
                     android:id="@+id/notify_number3"
-                    android:layout_width="0.0dip"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:layout_weight="1.0"
+                    android:layout_weight="1"
                     android:ems="10"
                     android:hint="Notify Number 3"
                     android:inputType="phone" />

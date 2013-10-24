@@ -7,8 +7,8 @@
 
     <ScrollView
         android:layout_width="fill_parent"
-        android:layout_height="0.0dip"
-        android:layout_weight="1.0" >
+        android:layout_height="0dp"
+        android:layout_weight="1" >
 
         <RelativeLayout
             android:layout_width="fill_parent"
@@ -16,13 +16,13 @@
 
             <LinearLayout
                 android:id="@+id/login_layout"
-                android:layout_width="500.0dip"
+                android:layout_width="500dp"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:orientation="vertical"
-                android:paddingLeft="16.0dip"
-                android:paddingRight="16.0dip"
-                android:paddingTop="50.0dip" >
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:paddingTop="50dp" >
 
                 <TextView
                     style="@style/Title"
@@ -31,15 +31,15 @@
                     android:layout_gravity="center_horizontal"
                     android:drawableTop="@drawable/logo_big"
                     android:gravity="center_horizontal"
-                    android:text="@string/welcome" />
+                    android:text="@string/app_name" />
 
                 <TextView
                     android:id="@+id/login_header"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingBottom="15.0dip"
-                    android:paddingLeft="5.0dip"
-                    android:paddingTop="15.0dip"
+                    android:paddingBottom="15dp"
+                    android:paddingLeft="5dp"
+                    android:paddingTop="15dp"
                     android:text="@string/msg_login"
                     android:textAppearance="?android:textAppearanceMedium"
                     android:visibility="gone" />
@@ -74,17 +74,17 @@
 
                     <Button
                         android:id="@+id/cancel_button"
-                        android:layout_width="0.0dip"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1.0"
+                        android:layout_weight="1"
                         android:text="Cancel"
                         android:textColor="@color/white" />
 
                     <Button
                         android:id="@+id/login_button"
-                        android:layout_width="0.0dip"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1.0"
+                        android:layout_weight="1"
                         android:text="@string/msg_login"
                         android:textColor="@color/white" />
                 </LinearLayout>
@@ -95,7 +95,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/login_layout"
                 android:layout_centerHorizontal="true"
-                android:layout_margin="10.0dip"
+                android:layout_margin="10dp"
                 ads:adSize="IAB_MRECT"
                 ads:adUnitId="@string/publisher_id"
                 ads:loadAdOnCreate="true" />
