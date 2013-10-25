@@ -31,15 +31,18 @@ import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.TextView.OnEditorActionListener;
 
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
@@ -229,14 +232,19 @@ public class MainActivity extends SherlockFragmentActivityPlus implements
         final EditText password = (EditText) loginView.findViewById(R.id.password);
         final EditText password_repeat = (EditText) loginView.findViewById(R.id.password_repeat);
         
-        Button login = (Button) loginView.findViewById(R.id.login_button);
+        final Button login = (Button) loginView.findViewById(R.id.login_button);
         Button cancel = (Button) loginView.findViewById(R.id.cancel_button);
 
         if(!passwordSet){
         	password_repeat.setVisibility(View.VISIBLE);
         	header.setVisibility(View.VISIBLE);
         }
-    	header.setText(getString(R.string.msg_login)+ (!passwordSet ? " Setup" : ""));        
+        else{
+        	password.setVisibility(View.GONE);
+        	password_repeat.setVisibility(View.VISIBLE);
+        	password_repeat.setHint(R.string.login_pwd);        	
+        }
+    	header.setText(!passwordSet ? getString(R.string.login_message) : getString(R.string.msg_login));        
         
         final Dialog dialog = new Dialog(this, R.style.Theme_Asecure_DailogLogin);
         dialog.setContentView(loginView);
@@ -254,10 +262,10 @@ public class MainActivity extends SherlockFragmentActivityPlus implements
 			@Override
 			public void onClick(View arg0) {
 				if(passwordSet){
-	            	if(password.length() == 0 || password.getText().toString() == ""
-	            		|| password.getText().toString().compareTo(setPassword) != 0){
-	                	password.startAnimation(shake);
-	                	password.setError(getString(R.string.msg_wrong_password));
+	            	if(password_repeat.length() == 0 || password_repeat.getText().toString() == ""
+	            		|| password_repeat.getText().toString().compareTo(setPassword) != 0){
+	            		password_repeat.startAnimation(shake);
+	            		password_repeat.setError(getString(R.string.msg_wrong_password));
 	                	return;
 	            	}
 				}
@@ -278,7 +286,17 @@ public class MainActivity extends SherlockFragmentActivityPlus implements
 				}
         		dialog.dismiss();
 			}});
-        
+        login.setOnEditorActionListener(new OnEditorActionListener() {
+			
+			@Override
+			public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == R.id.login_button || actionId == EditorInfo.IME_NULL || actionId == EditorInfo.IME_ACTION_DONE) {
+                	login.performClick();
+                    return true;
+                }
+				return false;
+			}
+		});
         cancel.setOnClickListener(new OnClickListener(){
 
 			@Override

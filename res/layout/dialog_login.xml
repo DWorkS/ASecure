@@ -63,6 +63,9 @@
                     android:ems="10"
                     android:fontFamily="sans-serif-light"
                     android:hint="@string/login_pwd_retype"
+                    android:imeActionId="@+id/login_button"
+                    android:imeActionLabel="@string/login"
+                    android:imeOptions="actionUnspecified"
                     android:inputType="textPassword"
                     android:singleLine="true"
                     android:visibility="gone" />

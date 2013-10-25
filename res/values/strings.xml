@@ -25,6 +25,8 @@
     <string name="login_pwd_desc">Password for login</string>
     <string name="welcome">Welcome to <b>ASecure</b></string>
     <string name="publisher_id">a1526236de4a7df</string>
+    <string name="login">Login</string>
     <string name="welcome_message">Register <b>SIM</b> and set notification contacts. Get messages on SIM change.</string>
+    <string name="login_message">Login Setup. Jusy enter any password and you are good to go.</string>
 
 </resources>
