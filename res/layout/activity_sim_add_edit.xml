@@ -156,6 +156,29 @@
         </LinearLayout>
     </ScrollView>
 
+    <LinearLayout
+        android:id="@+id/test_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/grey_light" />
+
+        <Button
+            android:id="@+id/test"
+            style="@style/Theme.Asecure.BorderlessButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_selection_sms"
+            android:drawablePadding="10dp"
+            android:padding="10dp"
+            android:text="Test SMS Notification"
+            android:textColor="@drawable/text_selection" />
+    </LinearLayout>
+
     <com.google.ads.AdView
         android:id="@+id/adView"
         android:layout_width="wrap_content"

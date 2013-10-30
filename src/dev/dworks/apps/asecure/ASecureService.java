@@ -19,15 +19,14 @@ package dev.dworks.apps.asecure;
 import java.util.List;
 
 import android.app.IntentService;
-import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.os.Bundle;
 import android.telephony.SmsManager;
-import android.telephony.TelephonyManager;
-import android.telephony.gsm.GsmCellLocation;
 import android.text.TextUtils;
 import dev.dworks.apps.asecure.entity.SecureSIM;
 import dev.dworks.apps.asecure.entity.SecureSIM.SecureSIMColumns;
+import dev.dworks.apps.asecure.misc.Utils;
 
 public class ASecureService extends IntentService {
 
@@ -53,26 +52,16 @@ public class ASecureService extends IntentService {
 	@Override
 	protected void onHandleIntent(Intent intent) {
 		SmsManager smsManager = SmsManager.getDefault();
-        String messageToSend = "I have your phone";
-        int lac = 0;
-        TelephonyManager telephonyManager = (TelephonyManager)getApplicationContext().getSystemService(Context.TELEPHONY_SERVICE);
-        String operatorName = telephonyManager.getSimOperatorName();
-        String simSerial = telephonyManager.getSimSerialNumber();
-        String imeiNumber = telephonyManager.getDeviceId();
-        GsmCellLocation location = (GsmCellLocation) telephonyManager.getCellLocation();
-        if(null != location){
-        	lac = location.getLac();
-        }
-        messageToSend += "\n My Operator is '"+ operatorName+ "'";
-        messageToSend += "\n My SIM serial is '"+ simSerial+ "'";
-        messageToSend += "\n My IMEI number is '"+ imeiNumber+ "'";
-        if(lac != 0){
-        	messageToSend += "\n My LAC is '"+ lac + "'";	
-        }
-        
-        //TODO: add lot long
+
+		Bundle bundle = Utils.getMessageDetails(getApplicationContext());
+		String simSerial =  bundle.getString(Utils.BUNDLE_SIM_NUMBER);
+        String messageToSend = bundle.getString(Utils.BUNDLE_MESSAGE);
+		//TODO: add lot long
         List<String> messages = smsManager.divideMessage(messageToSend);
 
+		if(TextUtils.isEmpty(simSerial)){
+        	return;
+        }
 		Cursor cursor = getContentResolver().query(
 				SecureSIM.CONTENT_URI,
 				PROJECTION,

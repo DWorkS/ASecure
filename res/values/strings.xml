@@ -17,7 +17,8 @@
     <string name="action_delete">Delete</string>
     <string name="msg_login">Login</string>
     <string name="msg_wrong_password">wrong password</string>
-    <string name="msg_pwd_empty">Password cannot be empty</string>
+    <string name="msg_pwd_empty">Password is empty</string>
+    <string name="msg_pwd_dont_match">Passwords dont match</string>
     <string name="auto_login">Auto Login</string>
     <string name="auto_login_desc">Automatically login</string>
     <string name="login_pwd">Login Password</string>
@@ -27,6 +28,6 @@
     <string name="publisher_id">a1526236de4a7df</string>
     <string name="login">Login</string>
     <string name="welcome_message">Register <b>SIM</b> and set notification contacts. Get messages on SIM change.</string>
-    <string name="login_message">Login Setup. Jusy enter any password and you are good to go.</string>
+    <string name="login_message">Login Setup. Just enter any password and you are good to go.</string>
 
 </resources>

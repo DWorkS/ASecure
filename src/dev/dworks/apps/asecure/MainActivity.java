@@ -215,6 +215,7 @@ public class MainActivity extends SherlockFragmentActivityPlus implements
 				} else {
 					register.setOnClickListener(MainActivity.this);
 					register.setImageResource(R.drawable.ic_add);
+					register.setEnabled(true);
 				}
 				cursor.close();
 			}
@@ -226,8 +227,8 @@ public class MainActivity extends SherlockFragmentActivityPlus implements
     	final boolean passwordSet = !TextUtils.isEmpty(password);
     	final String setPassword = password;
     			
-        LayoutInflater factorys = LayoutInflater.from(this);
-        final View loginView = factorys.inflate(R.layout.dialog_login, null);
+        LayoutInflater layoutInflater = LayoutInflater.from(this);
+        final View loginView = layoutInflater.inflate(R.layout.dialog_login, null);
         TextView header = (TextView) loginView.findViewById(R.id.login_header);
         final EditText password = (EditText) loginView.findViewById(R.id.password);
         final EditText password_repeat = (EditText) loginView.findViewById(R.id.password_repeat);
@@ -257,36 +258,7 @@ public class MainActivity extends SherlockFragmentActivityPlus implements
 		});
         dialog.show();        
 
-        login.setOnClickListener(new OnClickListener(){
-
-			@Override
-			public void onClick(View arg0) {
-				if(passwordSet){
-	            	if(password_repeat.length() == 0 || password_repeat.getText().toString() == ""
-	            		|| password_repeat.getText().toString().compareTo(setPassword) != 0){
-	            		password_repeat.startAnimation(shake);
-	            		password_repeat.setError(getString(R.string.msg_wrong_password));
-	                	return;
-	            	}
-				}
-				else{
-	            	if(password.length() == 0 && password.getText().toString() == ""){
-	                	password.startAnimation(shake);
-	                	password.setError(getString(R.string.msg_pwd_empty));
-	                	return;
-	            	}
-	            	if(password_repeat.length() == 0 || password_repeat.getText().toString() == ""
-	            		|| password_repeat.getText().toString().compareTo(password.getText().toString()) != 0){
-	            		password_repeat.startAnimation(shake);
-	            		password_repeat.setError(getString(R.string.msg_pwd_empty));
-	            		return;
-	            	}
-	            	editor.putString("LoginPasswordPref", password.getText().toString());
-	            	editor.commit();
-				}
-        		dialog.dismiss();
-			}});
-        login.setOnEditorActionListener(new OnEditorActionListener() {
+        password_repeat.setOnEditorActionListener(new OnEditorActionListener() {
 			
 			@Override
 			public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
@@ -297,6 +269,42 @@ public class MainActivity extends SherlockFragmentActivityPlus implements
 				return false;
 			}
 		});
+        login.setOnClickListener(new OnClickListener(){
+
+			@Override
+			public void onClick(View arg0) {
+				if(passwordSet){
+					final String passwordString = password_repeat.getText().toString();
+	            	if(TextUtils.isEmpty(passwordString) || passwordString.compareTo(setPassword) != 0){
+	            		password_repeat.startAnimation(shake);
+	            		password_repeat.setError(getString(R.string.msg_wrong_password));
+	                	return;
+	            	}
+				}
+				else{
+					final String passwordString = password_repeat.getText().toString();
+					final String passwordRepeatString = password_repeat.getText().toString();
+	            	if(TextUtils.isEmpty(passwordString)){
+	                	password.startAnimation(shake);
+	                	password.setError(getString(R.string.msg_pwd_empty));
+	                	return;
+	            	}
+	            	if(TextUtils.isEmpty(passwordRepeatString)){
+	            		password_repeat.startAnimation(shake);
+	            		password_repeat.setError(getString(R.string.msg_pwd_empty));
+	            		return;
+	            	}
+	            	else if(passwordString.compareTo(passwordRepeatString) != 0){
+	            		password_repeat.startAnimation(shake);
+	            		password_repeat.setError(getString(R.string.msg_pwd_dont_match));
+	            		return;	            		
+	            	}
+	            	editor.putString("LoginPasswordPref", password.getText().toString());
+	            	editor.commit();
+				}
+        		dialog.dismiss();
+			}});
+
         cancel.setOnClickListener(new OnClickListener(){
 
 			@Override

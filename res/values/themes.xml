@@ -2,7 +2,7 @@
 
     <style name="Theme.Asecure" parent="@style/Theme.Sherlock.Light.DarkActionBar">
         <item name="android:buttonStyle">@style/ButtonASecure</item>
-        <!-- <item name="android:checkboxStyle">@style/CheckBoxASecure</item> -->
+        <item name="android:checkboxStyle">@style/CheckBoxASecure</item>
         <item name="android:editTextStyle">@style/EditTextASecure</item>
         <item name="android:imageButtonStyle">@style/ImageButtonASecure</item>
         <item name="android:listViewStyle">@style/ListViewASecure</item>

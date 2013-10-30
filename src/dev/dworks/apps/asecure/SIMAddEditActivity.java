@@ -17,6 +17,7 @@
 package dev.dworks.apps.asecure;
 
 import java.util.Calendar;
+import java.util.List;
 
 import android.annotation.SuppressLint;
 import android.content.AsyncQueryHandler;
@@ -29,9 +30,11 @@ import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.provider.ContactsContract.CommonDataKinds.Phone;
 import android.telephony.PhoneNumberUtils;
+import android.telephony.SmsManager;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -67,6 +70,8 @@ public class SIMAddEditActivity extends SherlockFragmentActivityPlus
 	private SIMQueryHandler simQueryHandler;
 	private String simSerial;
 	private Uri uri;
+	private View test_layout;
+	private Button test;
 
 	@Override
 	protected void onCreate(Bundle paramBundle) {
@@ -89,17 +94,23 @@ public class SIMAddEditActivity extends SherlockFragmentActivityPlus
 		notify_number3_select = ((ImageButton) findViewById(R.id.notify_number3_select));
 		send_sms = ((CheckBox) findViewById(R.id.send_sms));
 		send_location = ((CheckBox) findViewById(R.id.send_location));
+		test_layout = findViewById(R.id.test_layout);
+		test = ((Button) findViewById(R.id.test));
+		
 		notify_number1_select.setOnClickListener(this);
 		notify_number2_select.setOnClickListener(this);
 		notify_number3_select.setOnClickListener(this);
+		test.setOnClickListener(this);
 	}
 
 	private void initData() {
-		if (getIntent().getAction() == Intent.ACTION_INSERT) {
+		if (null != getIntent().getAction() 
+				&& getIntent().getAction().compareToIgnoreCase(Intent.ACTION_INSERT) == 0) {
 			Bundle localBundle = getIntent().getExtras();
 			operatorName = localBundle.getString(Utils.BUNDLE_OPERATOR);
 			simSerial = localBundle.getString(Utils.BUNDLE_SIM_NUMBER);
 		} else {
+			test_layout.setVisibility(View.VISIBLE);
 			uri = getIntent().getData();
 			simQueryHandler = new SIMQueryHandler(getContentResolver());
 			simQueryHandler.startQuery(0, null, uri, null, null, null, null);
@@ -220,23 +231,54 @@ public class SIMAddEditActivity extends SherlockFragmentActivityPlus
 	@Override
 	public void onClick(View paramView) {
 		int request = 0;
+		Intent localIntent = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
+		localIntent.setType(Phone.CONTENT_TYPE);
 		switch (paramView.getId()) {
 		case R.id.notify_number1_select:
 			request = NOTIFY_CONTACT1;
+			startActivityForResult(localIntent, request);
 			break;
 
 		case R.id.notify_number2_select:
 			request = NOTIFY_CONTACT2;
+			startActivityForResult(localIntent, request);
 			break;
 
 		case R.id.notify_number3_select:
 			request = NOTIFY_CONTACT3;
+			startActivityForResult(localIntent, request);
 			break;
+			
+		case R.id.test:
+			sendTestSMS();
+			break;			
+		}
+	}
+
+
+	private void sendTestSMS() {
+		SmsManager smsManager = SmsManager.getDefault();
+
+		Bundle bundle = Utils.getMessageDetails(getApplicationContext());
+		String simSerial =  bundle.getString(Utils.BUNDLE_SIM_NUMBER);
+        String messageToSend = bundle.getString(Utils.BUNDLE_MESSAGE);
+		if(TextUtils.isEmpty(simSerial)){
+        	return;
+        }
+		List<String> messages = smsManager.divideMessage(messageToSend);
+		String notify1 = notify_number1.getText().toString();
+		String notify2 = notify_number2.getText().toString();
+		String notify3 = notify_number3.getText().toString();
+		String notify_numbers[] = {notify1, notify2, notify3};
+		for (String notify_number : notify_numbers) {
+			if(!TextUtils.isEmpty(notify_number)){
+		        for (String message : messages) {
+		        	smsManager.sendTextMessage(notify_number, null, message, null, null);
+		        }					
+			}	
 		}
 		
-		Intent localIntent = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
-		localIntent.setType(Phone.CONTENT_TYPE);
-		startActivityForResult(localIntent, request);
+		Toast.makeText(this, "Test SMS sent", Toast.LENGTH_SHORT).show();
 	}
 
 
