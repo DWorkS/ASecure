@@ -38,7 +38,7 @@ public class Utils {
 	
 	public static Bundle getMessageDetails(Context context){
 		Bundle bundle = new Bundle();
-        String messageToSend = "I have your phone";
+        String messageToSend = "";
         int lac = 0;
         int cid = 0;
         TelephonyManager telephonyManager = (TelephonyManager)context.getSystemService(Context.TELEPHONY_SERVICE);
@@ -51,7 +51,7 @@ public class Utils {
         	lac = location.getLac();
         	cid = location.getCid();
         }
-        messageToSend += "\nOperator: '"+ operatorName+ "'";
+        messageToSend += "Operator: '"+ operatorName+ "'";
         messageToSend += "\nSIM serial: '"+ simSerial+ "'";
         messageToSend += "\nIMEI number: '"+ imeiNumber+ "'";
         if(lac != 0){
@@ -67,7 +67,7 @@ public class Utils {
             messageToSend += "\nMNC: '"+ mnc + "'";
         }
 
-        messageToSend +="\nFind out location at http://cellphonetrackers.org/gsm/gsm-tracker.php";
+        messageToSend +="\nhttp://goo.gl/M6jTxP";
         bundle.putString(Utils.BUNDLE_SIM_NUMBER, simSerial);
         bundle.putString(Utils.BUNDLE_MESSAGE, messageToSend);
         return bundle;
