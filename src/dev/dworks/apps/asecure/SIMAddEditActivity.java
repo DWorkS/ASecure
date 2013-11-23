@@ -72,6 +72,7 @@ public class SIMAddEditActivity extends SherlockFragmentActivityPlus
 	private Uri uri;
 	private View test_layout;
 	private Button test;
+	private Intent contactIntent;
 
 	@Override
 	protected void onCreate(Bundle paramBundle) {
@@ -84,6 +85,8 @@ public class SIMAddEditActivity extends SherlockFragmentActivityPlus
 	}
 	
 	private void initControls() {
+		contactIntent = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
+		contactIntent.setType(Phone.CONTENT_TYPE);
 		number = ((TextView) findViewById(R.id.number));
 		operator = ((TextView) findViewById(R.id.operator));
 		notify_number1 = ((EditText) findViewById(R.id.notify_number1));
@@ -96,10 +99,17 @@ public class SIMAddEditActivity extends SherlockFragmentActivityPlus
 		send_location = ((CheckBox) findViewById(R.id.send_location));
 		test_layout = findViewById(R.id.test_layout);
 		test = ((Button) findViewById(R.id.test));
-		
-		notify_number1_select.setOnClickListener(this);
-		notify_number2_select.setOnClickListener(this);
-		notify_number3_select.setOnClickListener(this);
+
+		if(Utils.openIntent(this, contactIntent)){
+			notify_number1_select.setOnClickListener(this);
+			notify_number2_select.setOnClickListener(this);
+			notify_number3_select.setOnClickListener(this);	
+		}
+		else{
+			notify_number1_select.setVisibility(View.GONE);
+			notify_number2_select.setVisibility(View.GONE);
+			notify_number3_select.setVisibility(View.GONE);
+		}
 		test.setOnClickListener(this);
 	}
 
@@ -231,22 +241,20 @@ public class SIMAddEditActivity extends SherlockFragmentActivityPlus
 	@Override
 	public void onClick(View paramView) {
 		int request = 0;
-		Intent localIntent = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
-		localIntent.setType(Phone.CONTENT_TYPE);
 		switch (paramView.getId()) {
 		case R.id.notify_number1_select:
 			request = NOTIFY_CONTACT1;
-			startActivityForResult(localIntent, request);
+			startActivityForResult(contactIntent, request);
 			break;
 
 		case R.id.notify_number2_select:
 			request = NOTIFY_CONTACT2;
-			startActivityForResult(localIntent, request);
+			startActivityForResult(contactIntent, request);
 			break;
 
 		case R.id.notify_number3_select:
 			request = NOTIFY_CONTACT3;
-			startActivityForResult(localIntent, request);
+			startActivityForResult(contactIntent, request);
 			break;
 			
 		case R.id.test:

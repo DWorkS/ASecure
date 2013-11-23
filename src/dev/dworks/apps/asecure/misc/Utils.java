@@ -16,19 +16,26 @@
 
 package dev.dworks.apps.asecure.misc;
 
+import java.util.List;
+
 import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.os.Bundle;
 import android.telephony.TelephonyManager;
 import android.telephony.gsm.GsmCellLocation;
+import android.text.TextUtils;
 import android.view.View;
 
 public class Utils {
 	public static final String BUNDLE_OPERATOR = "bundle_operator";
 	public static final String BUNDLE_SIM_NUMBER = "bundle_sim_number";
 	public static final String BUNDLE_MESSAGE = "bundle_message";
-
+	public static final String SYNC_LAST = "sync_last";
+	
 	public static Bitmap drawViewOntoBitmap(View paramView) {
 		Bitmap localBitmap = Bitmap.createBitmap(paramView.getWidth(),
 				paramView.getHeight(), Bitmap.Config.RGB_565);
@@ -60,7 +67,7 @@ public class Utils {
         if(cid != 0){
         	messageToSend += "\nCID: '"+ cid + "'";	
         }
-        if (networkOperator != null) {
+        if (!TextUtils.isEmpty(networkOperator)) {
             String mcc = networkOperator.substring(0, 3);
             String mnc = networkOperator.substring(3);
             messageToSend += "\nMCC: '"+ mcc + "'";
@@ -72,4 +79,17 @@ public class Utils {
         bundle.putString(Utils.BUNDLE_MESSAGE, messageToSend);
         return bundle;
 	}
+	
+	public static boolean openIntent(Context context, Intent intent) {
+	    final PackageManager packageManager = context.getPackageManager();
+	    List<ResolveInfo> list =
+	            packageManager.queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
+        if(list.size() > 0) {
+            return true;
+		}
+        else{
+			return false;
+		}	
+	}	
+	
 }

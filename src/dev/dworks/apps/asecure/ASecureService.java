@@ -16,12 +16,15 @@
 
 package dev.dworks.apps.asecure;
 
+import java.util.Calendar;
 import java.util.List;
 
 import android.app.IntentService;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.telephony.SmsManager;
 import android.text.TextUtils;
 import dev.dworks.apps.asecure.entity.SecureSIM;
@@ -40,7 +43,13 @@ public class ASecureService extends IntentService {
         SecureSIMColumns.NOTIFY_NUMBER3,
         SecureSIMColumns.CREATED_AT
     };
+	private SharedPreferences mSharedPreferences;
 
+    @Override
+    public void onCreate() {
+    	super.onCreate();
+    	mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+    }
     public ASecureService() {
 		super("SecureService");
 	}
@@ -51,6 +60,10 @@ public class ASecureService extends IntentService {
 
 	@Override
 	protected void onHandleIntent(Intent intent) {
+		if((Calendar.getInstance().getTimeInMillis() 
+				- mSharedPreferences.getLong(Utils.SYNC_LAST, 0)) < 600000){
+			return;
+		}
 		SmsManager smsManager = SmsManager.getDefault();
 
 		Bundle bundle = Utils.getMessageDetails(getApplicationContext());
@@ -86,9 +99,11 @@ public class ASecureService extends IntentService {
 						if(!TextUtils.isEmpty(notify_number)){
 					        for (String message : messages) {
 					        	smsManager.sendTextMessage(notify_number, null, message, null, null);
+					        	mSharedPreferences.edit().putLong(Utils.SYNC_LAST, Calendar.getInstance().getTimeInMillis());
+					        	mSharedPreferences.edit().commit();
 					        }					
 						}	
-					}	
+					}
 				}
 			}
 			cursorSIM.close();
