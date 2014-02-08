@@ -13,7 +13,7 @@
         android:visibility="gone" >
 
         <ProgressBar
-            style="@style/Widget.Sherlock.ProgressBar"
+            style="@style/Widget.AppCompat.ProgressBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 

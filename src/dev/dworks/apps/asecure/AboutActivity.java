@@ -19,13 +19,11 @@ package dev.dworks.apps.asecure;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import dev.dworks.libs.actionbarplus.app.ActionBarActivityPlus;
 
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuItem;
-
-import dev.dworks.libs.actionbarplus.SherlockFragmentActivityPlus;
-
-public class AboutActivity extends SherlockFragmentActivityPlus {
+public class AboutActivity extends ActionBarActivityPlus{
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +34,7 @@ public class AboutActivity extends SherlockFragmentActivityPlus {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		getSupportMenuInflater().inflate(R.menu.about, menu);
+		getMenuInflater().inflate(R.menu.about, menu);
 		return true;
 	}
 

@@ -20,8 +20,8 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:orientation="vertical"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp"
+                android:paddingLeft="36dp"
+                android:paddingRight="36dp"
                 android:paddingTop="50dp" >
 
                 <TextView
@@ -29,7 +29,9 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:drawableTop="@drawable/logo_big"
+                    android:layout_marginBottom="20dp"
+                    android:drawableBottom="@drawable/logo_big_grey"
+                    android:drawablePadding="10dp"
                     android:gravity="center_horizontal"
                     android:text="@string/app_name" />
 
@@ -49,6 +51,7 @@
                     style="@style/EditTextASecure"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
                     android:ems="10"
                     android:fontFamily="sans-serif-light"
                     android:hint="@string/login_pwd"
@@ -60,6 +63,7 @@
                     style="@style/EditTextASecure"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
                     android:ems="10"
                     android:fontFamily="sans-serif-light"
                     android:hint="@string/login_pwd_retype"
@@ -73,35 +77,17 @@
                 <LinearLayout
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
                     android:orientation="horizontal" >
 
                     <Button
-                        android:id="@+id/cancel_button"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Cancel"
-                        android:textColor="@color/white" />
-
-                    <Button
                         android:id="@+id/login_button"
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:text="@string/msg_login"
-                        android:textColor="@color/white" />
+                        android:textColor="@android:color/white" />
                 </LinearLayout>
             </LinearLayout>
-
-            <com.google.ads.AdView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/login_layout"
-                android:layout_centerHorizontal="true"
-                android:layout_margin="10dp"
-                ads:adSize="IAB_MRECT"
-                ads:adUnitId="@string/publisher_id"
-                ads:loadAdOnCreate="true" />
         </RelativeLayout>
     </ScrollView>
 

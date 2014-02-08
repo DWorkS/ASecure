@@ -1,46 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <style name="ActionBar.Solid.Asecure" parent="@style/Widget.Sherlock.Light.ActionBar.Solid.Inverse">
+    <style name="ActionBar.Solid.Asecure" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
         <item name="background">@drawable/ab_solid_asecure</item>
         <item name="backgroundStacked">@drawable/ab_stacked_solid_asecure</item>
         <item name="backgroundSplit">@drawable/ab_bottom_solid_asecure</item>
         <item name="progressBarStyle">@style/ProgressBar.Asecure</item>
     </style>
 
-    <style name="ActionBar.Transparent.Asecure" parent="@style/Widget.Sherlock.ActionBar">
+    <style name="ActionBar.Transparent.Asecure" parent="@style/Widget.AppCompat.ActionBar">
         <item name="background">@drawable/ab_transparent_asecure</item>
         <item name="progressBarStyle">@style/ProgressBar.Asecure</item>
     </style>
 
-    <style name="PopupMenu.Asecure" parent="@style/Widget.Sherlock.ListPopupWindow">
+    <style name="PopupMenu.Asecure" parent="@style/Widget.AppCompat.ListPopupWindow">
         <item name="android:popupBackground">@drawable/menu_dropdown_panel_asecure</item>
     </style>
 
-    <style name="DropDownListView.Asecure" parent="@style/Widget.Sherlock.ListView.DropDown">
+    <style name="DropDownListView.Asecure" parent="@style/Widget.AppCompat.ListView.DropDown">
         <item name="android:listSelector">@drawable/selectable_background_asecure</item>
     </style>
 
-    <style name="ActionBarTabStyle.Asecure" parent="@style/Widget.Sherlock.ActionBar.TabView">
+    <style name="ActionBarTabStyle.Asecure" parent="@style/Widget.AppCompat.ActionBar.TabView">
         <item name="android:background">@drawable/tab_indicator_ab_asecure</item>
     </style>
 
-    <style name="DropDownNav.Asecure" parent="@style/Widget.Sherlock.Spinner.DropDown.ActionBar">
+    <style name="DropDownNav.Asecure" parent="@style/Widget.AppCompat.Spinner.DropDown.ActionBar">
         <item name="android:background">@drawable/spinner_background_ab_asecure</item>
         <item name="android:popupBackground">@drawable/menu_dropdown_panel_asecure</item>
         <item name="android:dropDownSelector">@drawable/selectable_background_asecure</item>
     </style>
 
-    <style name="ProgressBar.Asecure" parent="@style/Widget.Sherlock.ProgressBar.Horizontal">
+    <style name="ProgressBar.Asecure" parent="@style/Widget.AppCompat.ProgressBar.Horizontal">
         <item name="android:progressDrawable">@drawable/progress_horizontal_asecure</item>
     </style>
 
-    <style name="ActionButton.CloseMode.Asecure" parent="@style/Widget.Sherlock.ActionButton.CloseMode">
+    <style name="ActionButton.CloseMode.Asecure" parent="@style/Widget.AppCompat.ActionButton.CloseMode">
         <item name="android:background">@drawable/btn_cab_done_asecure</item>
     </style>
 
     <!-- this style is only referenced in a Light.DarkActionBar based theme -->
-    <style name="Theme.Asecure.Widget" parent="@style/Theme.Sherlock">
+    <style name="Theme.Asecure.Widget" parent="@style/Theme.AppCompat">
         <item name="popupMenuStyle">@style/PopupMenu.Asecure</item>
         <item name="dropDownListViewStyle">@style/DropDownListView.Asecure</item>
     </style>
@@ -88,7 +88,7 @@
         <item name="android:textColor">#000000</item>
     </style>
 
-    <style name="Theme.Asecure.ActionButton.Overflow" parent="@style/Widget.Sherlock.ActionButton.Overflow">
+    <style name="Theme.Asecure.ActionButton.Overflow" parent="@style/Widget.AppCompat.ActionButton.Overflow">
         <item name="android:src">@drawable/ic_action_overflow</item>
     </style>
 
@@ -97,13 +97,10 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginBottom">5dp</item>
         <item name="android:textSize">20sp</item>
-        <item name="android:textColor">#49C0EC</item>
-        <item name="android:shadowColor">#000000</item>
-        <item name="android:shadowDy">2</item>
-        <item name="android:shadowRadius">2.0</item>
+        <item name="android:textColor">@color/green</item>
     </style>
 
-    <style name="Theme.Asecure.ListSeparator" parent="Widget.Sherlock.TextView.Holo.ListSeparator.Light">
+    <style name="Theme.Asecure.ListSeparator" parent="Widget.Plus.TextView.Holo.ListSeparator.Light">
         <item name="android:background">@drawable/list_section_divider_holo_light</item>
         <item name="android:textColor">@color/green</item>
         <item name="android:textStyle">bold</item>
@@ -114,16 +111,15 @@
         <item name="android:background">@drawable/list_selector_holo_light</item>
         <item name="android:gravity">center_vertical</item>
         <item name="android:minHeight">48dp</item>
-        <item name="android:padding">4dp</item>
+        <item name="android:padding">5dp</item>
     </style>
 
     <style name="Title">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginBottom">8dp</item>
-        <item name="android:textSize">25sp</item>
-        <item name="android:textColor">#ff0099cc</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:textSize">32sp</item>
+        <item name="android:textColor">@color/green</item>
+        <item name="android:fontFamily">sans-serif-thin</item>
     </style>
 </resources>

@@ -24,7 +24,6 @@
         android:theme="@style/Theme.Asecure" >
         <activity
             android:name="dev.dworks.apps.asecure.MainActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -34,7 +33,6 @@
         </activity>
         <activity
             android:name="dev.dworks.apps.asecure.AboutActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/title_activity_about"
             android:parentActivityName="dev.dworks.apps.asecure.MainActivity"
             android:theme="@style/Theme.Asecure.About"
@@ -45,7 +43,6 @@
         </activity>
         <activity
             android:name="dev.dworks.apps.asecure.SIMAddEditActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/title_activity_simadd_edit"
             android:windowSoftInputMode="stateHidden" />
 

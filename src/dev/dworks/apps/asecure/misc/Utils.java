@@ -30,6 +30,11 @@ import android.telephony.gsm.GsmCellLocation;
 import android.text.TextUtils;
 import android.view.View;
 
+import com.android.i18n.phonenumbers.NumberParseException;
+import com.android.i18n.phonenumbers.PhoneNumberUtil;
+import com.android.i18n.phonenumbers.PhoneNumberUtil.PhoneNumberFormat;
+import com.android.i18n.phonenumbers.Phonenumber.PhoneNumber;
+
 public class Utils {
 	public static final String BUNDLE_OPERATOR = "bundle_operator";
 	public static final String BUNDLE_SIM_NUMBER = "bundle_sim_number";
@@ -90,6 +95,20 @@ public class Utils {
         else{
 			return false;
 		}	
-	}	
+	}
+	
+	public static String getFormattedPhoneNumber(String mobileStr, String countryCode){
+        PhoneNumberUtil phoneUtil = PhoneNumberUtil.getInstance();
+        PhoneNumber phoneNumber;
+        String phoneNumberE164 = mobileStr;
+        
+		try {
+			phoneNumber = phoneUtil.parse(mobileStr, countryCode);
+			phoneNumberE164 = phoneUtil.format(phoneNumber, PhoneNumberFormat.E164);
+		} catch (NumberParseException e) {
+			e.printStackTrace();
+		}
+		return phoneNumberE164;
+	}
 	
 }

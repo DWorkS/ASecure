@@ -33,6 +33,8 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.animation.Animation;
@@ -43,17 +45,13 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
-
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuItem;
-
 import dev.dworks.apps.asecure.entity.SecureSIM;
 import dev.dworks.apps.asecure.entity.SecureSIM.SecureSIMColumns;
 import dev.dworks.apps.asecure.misc.Utils;
-import dev.dworks.libs.actionbarplus.SherlockFragmentActivityPlus;
-import dev.dworks.libs.widget.SwipeDismissTouchListener;
+import dev.dworks.libs.actionbarplus.app.ActionBarActivityPlus;
+import dev.dworks.libs.actionbarplus.widget.SwipeDismissTouchListener;
 
-public class MainActivity extends SherlockFragmentActivityPlus implements
+public class MainActivity extends ActionBarActivityPlus implements
 		OnClickListener {
 
 	private static final String[] PROJECTION = {
@@ -150,7 +148,7 @@ public class MainActivity extends SherlockFragmentActivityPlus implements
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		getSupportMenuInflater().inflate(R.menu.main, menu);
+		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
 
@@ -234,7 +232,7 @@ public class MainActivity extends SherlockFragmentActivityPlus implements
         final EditText password_repeat = (EditText) loginView.findViewById(R.id.password_repeat);
         
         final Button login = (Button) loginView.findViewById(R.id.login_button);
-        Button cancel = (Button) loginView.findViewById(R.id.cancel_button);
+        //Button cancel = (Button) loginView.findViewById(R.id.cancel_button);
 
         if(!passwordSet){
         	password_repeat.setVisibility(View.VISIBLE);
@@ -305,12 +303,12 @@ public class MainActivity extends SherlockFragmentActivityPlus implements
         		dialog.dismiss();
 			}});
 
-        cancel.setOnClickListener(new OnClickListener(){
+/*        cancel.setOnClickListener(new OnClickListener(){
 
 			@Override
 			public void onClick(View arg0) {
 				dialog.dismiss();
 				finish();
-			}});
+			}});*/
 	}
 }

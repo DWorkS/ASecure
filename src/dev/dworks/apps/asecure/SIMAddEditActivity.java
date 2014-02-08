@@ -32,6 +32,8 @@ import android.provider.ContactsContract.CommonDataKinds.Phone;
 import android.telephony.PhoneNumberUtils;
 import android.telephony.SmsManager;
 import android.text.TextUtils;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -40,16 +42,12 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuItem;
-
 import dev.dworks.apps.asecure.entity.SecureSIM;
 import dev.dworks.apps.asecure.entity.SecureSIM.SecureSIMColumns;
 import dev.dworks.apps.asecure.misc.Utils;
-import dev.dworks.libs.actionbarplus.SherlockFragmentActivityPlus;
+import dev.dworks.libs.actionbarplus.app.ActionBarActivityPlus;
 
-public class SIMAddEditActivity extends SherlockFragmentActivityPlus 
+public class SIMAddEditActivity extends ActionBarActivityPlus 
 		implements OnClickListener {
 	
 	private static final int NOTIFY_CONTACT1 = 101;
@@ -131,7 +129,7 @@ public class SIMAddEditActivity extends SherlockFragmentActivityPlus
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		getSupportMenuInflater().inflate(R.menu.sim_add_edit, menu);
+		getMenuInflater().inflate(R.menu.sim_add_edit, menu);
 		return true;
 	}
 

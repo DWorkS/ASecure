@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:support="http://schemas.android.com/apk/res-auto" >
+
+    <item
+        android:id="@+id/blacklist_add"
+        android:icon="@drawable/ic_menu_add"
+        android:title="@string/add_blacklist_number"
+        support:showAsAction="ifRoom|withText"/>
+    <item
+        android:id="@+id/blacklist_prefs"
+        android:icon="@drawable/ic_sysbar_quicksettings"
+        android:title="@string/blacklist_prefs"
+        support:showAsAction="ifRoom|withText"/>
+
+</menu>

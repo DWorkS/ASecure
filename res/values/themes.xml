@@ -1,6 +1,6 @@
 <resources>
 
-    <style name="Theme.Asecure" parent="@style/Theme.Sherlock.Light.DarkActionBar">
+    <style name="Theme.Asecure" parent="@style/Theme.AppCompat.Light.DarkActionBar">
         <item name="android:buttonStyle">@style/ButtonASecure</item>
         <item name="android:checkboxStyle">@style/CheckBoxASecure</item>
         <item name="android:editTextStyle">@style/EditTextASecure</item>
@@ -23,7 +23,7 @@
         <item name="popupMenuStyle">@style/PopupMenu.Asecure</item>
     </style>
 
-    <style name="Theme.Asecure.About" parent="@style/Theme.Sherlock.Light.DarkActionBar" />
+    <style name="Theme.Asecure.About" parent="@style/Theme.AppCompat.Light.DarkActionBar" />
 
     <style name="Theme.Asecure.DailogLogin" parent="@style/Theme.Asecure">
         <item name="android:windowNoTitle">true</item>

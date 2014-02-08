@@ -3,5 +3,6 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">10dp</dimen>
     <dimen name="activity_vertical_margin">10dp</dimen>
-
+    <bool name="config_use_strict_phone_number_comparation">false</bool> 
+    <dimen name="action_bar_switch_padding">16dip</dimen>
 </resources>

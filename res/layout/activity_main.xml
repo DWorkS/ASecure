@@ -1,131 +1,154 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/dev.dworks.apps.ataxer"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".MainActivity" >
 
     <LinearLayout
-        android:id="@+id/dismissable_container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical" >
 
-        <dev.dworks.apps.asecure.ui.SwipeLinearLayout
-            android:id="@+id/dismiss_content"
+        <LinearLayout
+            android:id="@+id/dismissable_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/card_bg"
             android:orientation="vertical" >
 
-            <TextView
+            <dev.dworks.apps.asecure.ui.SwipeLinearLayout
+                android:id="@+id/dismiss_content"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:layout_marginTop="10dp"
-                android:fontFamily="sans-serif-light"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp"
-                android:text="@string/welcome"
-                android:textSize="22sp" />
+                android:background="@drawable/card_bg"
+                android:orientation="vertical" >
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp"
-                android:textColor="@color/grey_light"
-                android:text="@string/welcome_message"
-                android:gravity="fill_vertical"
-                android:textSize="18sp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="sans-serif-light"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:text="@string/welcome"
+                    android:textSize="22sp" />
 
-            <View
-                android:layout_width="fill_parent"
-                android:layout_height="0.5dp"
-                android:background="@color/grey_light" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:gravity="fill_vertical"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:text="@string/welcome_message"
+                    android:textColor="@color/grey_light"
+                    android:textSize="18sp" />
 
-            <Button
-                android:id="@+id/dismiss"
-                style="@style/Theme.Asecure.BorderlessButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/ic_registered"
-                android:drawablePadding="10dp"
-                android:padding="10dp"
-                android:textColor="@color/green"
-                android:text="Got it" />
-        </dev.dworks.apps.asecure.ui.SwipeLinearLayout>
-    </LinearLayout>
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/grey_light" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin" >
-
-        <TextView
-            style="@style/Theme.Asecure.ListSeparator"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="CURRENT SIM"
-            android:textStyle="bold" />
+                <Button
+                    android:id="@+id/dismiss"
+                    style="@style/Theme.Asecure.BorderlessButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/ic_registered"
+                    android:drawablePadding="10dp"
+                    android:padding="10dp"
+                    android:text="Got it"
+                    android:textColor="@color/green" />
+            </dev.dworks.apps.asecure.ui.SwipeLinearLayout>
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="5dp" >
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin" >
+
+            <TextView
+                style="@style/Theme.Asecure.ListSeparator"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="CURRENT SIM"
+                android:textStyle="bold" />
 
             <LinearLayout
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical" >
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp" >
 
-                <TextView
-                    android:id="@+id/operator"
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/operator"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="3dp"
+                        android:hint="Operator Name"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="SIM Number"
+                        android:textColor="@color/grey"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <ImageButton
+                    android:id="@+id/register"
+                    style="@style/Theme.Asecure.BorderlessButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="3dp"
-                    android:hint="Operator Name"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:id="@+id/number"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:hint="SIM Number"
-                    android:textColor="@color/grey"
-                    android:textSize="16sp" />
+                    android:src="@drawable/ic_add"
+                    android:text="Register" />
             </LinearLayout>
 
-            <ImageButton
-                android:id="@+id/register"
-                style="@style/Theme.Asecure.BorderlessButton"
-                android:layout_width="wrap_content"
+            <TextView
+                style="@style/Theme.Asecure.ListSeparator"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_add"
-                android:text="Register" />
+                android:text="REGISTERED SIM"
+                android:textStyle="bold" />
         </LinearLayout>
 
-        <TextView
-            style="@style/Theme.Asecure.ListSeparator"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="REGISTERED SIM"
-            android:textStyle="bold" />
+        <FrameLayout
+            android:id="@+id/content_frame"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
     </LinearLayout>
 
-    <FrameLayout
-        android:id="@+id/content_frame"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+    <LinearLayout
+        android:id="@+id/navigation_frame"
+        android:layout_width="240dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="#808080"
+        android:orientation="vertical" >
 
-</LinearLayout>
+        <ListView
+            android:id="@+id/left_drawer"
+            android:layout_width="240dp"
+            android:layout_height="match_parent"
+            android:background="#fff"
+            android:choiceMode="singleChoice" />
+    </LinearLayout>
+
+</android.support.v4.widget.DrawerLayout>
